@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, Image, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../components/button';
+import SignUpInfo from './clinical/signup_info';
+import LoginButton from '../components/login_button';
+import Status from './clinical/clinical_status';
+import AddProfilePic from './clinical/add_profile_pic';
+
+
 const UserSelection = () => {
   const navigation = useNavigation();
   const [selectedOption, setSelectedOption] = useState(null);
@@ -11,11 +17,17 @@ const UserSelection = () => {
   };
 
   const handleSubmit = () => {
-    if (selectedOption) {
-      navigation.navigate('NextScreen', { selectedOption });
+    if (selectedOption === 'clinical') {
+      navigation.navigate('AddProfilePic');
+    } else if (selectedOption === 'patient') {
+      navigation.navigate('PatientScreen');
     } else {
       alert('Please select an option');
     }
+  };
+
+  const handleLoginPress = () => {
+    navigation.navigate('LoginScreen');
   };
 
   const renderOption = (option, imageSource, text) => {
@@ -46,8 +58,9 @@ const UserSelection = () => {
             {renderOption('clinical', require('../assets/images/17.png'), 'Clinical')}
             {renderOption('patient', require('../assets/images/18.png'), 'Patient')}
           </View>
-          <CustomButton title="Next" onPress={handleSubmit} /> 
-          
+          <CustomButton title="Next" onPress={handleSubmit} />
+  
+          <LoginButton title="Already have an account?" onPress={handleLoginPress} />
         </View>
       </View>
     </View>
@@ -79,7 +92,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     borderTopLeftRadius: 60,
     borderTopRightRadius: 60,
     borderWidth: 3,
@@ -92,29 +105,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 40,
 
   },
-  optionContainer: {
-    flexDirection: 'column',
-    shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 1,
-},
-    shadowOpacity: 0.20,
-    shadowRadius: 1.41,
-
-    elevation: 2,
+    optionContainer: {
+      flexDirection: 'column',
+  //     shadowColor: "#000",
+  //   shadowOffset: {
+  //   width: 0,
+  //   height: 1,
+  // },
+  //   shadowOpacity: 0.2,
+  //   shadowRadius: 1.41,
+  //   elevation: 2,
     alignItems: 'center',
-
     justifyContent: 'center',
+    backgroundColor: '#F6F5F2',
     borderWidth: 3,
     height: 120,
     borderColor: '#fff',
     borderRadius: 10,
-    marginHorizontal: 10,
-    width: 170,
+    marginHorizontal: 15,
+    width: 150,
     alignItems: 'center',
   },
   selectedOption: {

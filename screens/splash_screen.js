@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import UserSelection from '../screens/user_selection';
 
 const SplashScreen = () => {
   const fadeAnim = new Animated.Value(0);
@@ -13,13 +14,13 @@ const SplashScreen = () => {
         fadeAnim,
         {
           toValue: 1,
-          duration: 2000, // 2 seconds
+          duration: 5000, // 2 seconds
           useNativeDriver: true,
         }
       ).start();
 
-      // Navigate to UserScreen
-      navigation.navigate('UserScreen');
+      // Navigate to UserSelection
+      navigation.navigate('UserSelection'); // Fixed navigation
     };
 
     animateAndNavigate();

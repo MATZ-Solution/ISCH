@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     width: '80%',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 20,
   },
   buttonText: {
     color: 'white',
