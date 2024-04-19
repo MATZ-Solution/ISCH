@@ -1,14 +1,23 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 
-const LoginButton = ({ title, onPress }) => {
+const LoginButton = ( ) => {
+  const handleLoginPress = () => {
+    navigation.navigate('LoginScreen');
+  };
   return (
+    <View style={{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 20,
+
+    }}>
   <Text style={styles.loginText}>
-    {title}
-    <TouchableOpacity onPress={onPress}>
+    Already have an account?</Text>
+    <TouchableOpacity onPress={handleLoginPress}>
       <Text style={styles.loginLink}>Login</Text>
     </TouchableOpacity>
-  </Text>
+  </View>
   );
 };
 
@@ -18,7 +27,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
     color: '#7A7A7A',
     textAlign: 'center',
-    marginBottom: 20,
 
   },
   loginLink: {

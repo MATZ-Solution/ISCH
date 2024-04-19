@@ -8,6 +8,10 @@ import SignUp from './screens/clinical/signup';
 import SignUpInfo from './screens/clinical/signup_info';
 import Status from './screens/clinical/clinical_status';
 import AddProfilePic from './screens/clinical/add_profile_pic';
+import Otp from './screens/clinical/otp';
+import ManagePrivacy from './screens/clinical/manage_privacy';
+import ThankYou from './screens/clinical/thankyou';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +25,9 @@ export default function App() {
         <Stack.Screen name="SignUpInfo" component={SignUpInfo} options={{ headerShown: false }} />
         <Stack.Screen name="Status" component={Status} options={{ headerShown: false }} />
         <Stack.Screen name="AddProfilePic" component={AddProfilePic} options={{ headerShown: false }} />
+        <Stack.Screen name="Otp" component={Otp} options={{ headerShown: false }} />
+        <Stack.Screen name="ManagePrivacy" component={ManagePrivacy} options={{ headerShown: false }} />
+        <Stack.Screen name='ThankYou' component={ThankYou} options={{ headerShown: false }} />
         {/* Add other screens here */}
       </Stack.Navigator>
     </NavigationContainer>

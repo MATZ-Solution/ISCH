@@ -19,10 +19,6 @@ const SignUp = () => {
     // Implement Apple sign-in logic here
     console.log('Continue with Apple pressed');
   };
-
-  const handleLoginPress = () => {
-    navigation.navigate('LoginScreen');
-  };
   const handleSubmit = () => {
     navigation.navigate('SignUp');
   };
@@ -42,7 +38,7 @@ const SignUp = () => {
         value={email}
         onChangeText={setEmail}
         placeholder="Email"
-        keyboardType="email-address"
+        keyboardType="email-address"  
       />
       <TextInput
         style={styles.input}
@@ -68,17 +64,14 @@ const SignUp = () => {
       <ContinueWithGoogleButton onPress={handleGooglePress} />
       <ContinueWithAppleButton onPress={handleApplePress} />
 
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-      <Text style={styles.buttonText}>Next</Text>
-    </TouchableOpacity>
-      <Text style={styles.loginText}>
-            Already have an account? 
-            <TouchableOpacity onPress={handleLoginPress}>
-              <Text style={styles.loginLink}>Login</Text>
-            </TouchableOpacity>
-            </Text>
-            
-      
+      <View style={{width: '80%', marginTop: 40}}>
+      <CustomButton title="Sign Up" onPress={handleSubmit} />
+      </View>
+
+      <View style={{}}>
+        <LoginButton/>
+      </View>
+
         </View>
         </View>
       </View>
@@ -148,35 +141,6 @@ const styles = StyleSheet.create({
   },
   orText: {
     fontSize: 16,
-    fontWeight: 'bold',
-  },
-  loginText: {
-    fontSize: 16,
-color: '#7A7A7A',
-textAlign: 'center',
-marginBottom: 20,
-
-},
-loginLink: {
-fontSize: 16,
-color: '#0470BA',
-fontWeight: 'bold',
-},
-
-button: {
-    backgroundColor: '#0470BA',
-    height: 50,
-    padding: 10,
-    borderRadius: 50,
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-    marginTop: 50,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 14,
     fontWeight: 'bold',
   },
 });

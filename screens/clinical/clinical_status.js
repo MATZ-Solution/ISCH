@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import CustomButton from '../../components/button';
+import LoginButton from '../../components/login_button';
 
 const Status = () => {
   ;
@@ -35,15 +37,13 @@ const Status = () => {
           verify@InfoSenior Care.{'\n'} if you are not in the NPDB database.{'\n'} InfoSenior Care. can only be used by{'\n'} verified clinicians or para-clinical staff.
           </Text>
 
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-      <Text style={styles.buttonText}>Next</Text>
-    </TouchableOpacity>
-      <Text style={styles.loginText}>
-            Already have an account? 
-            <TouchableOpacity onPress={handleLoginPress}>
-              <Text style={styles.loginLink}>Login</Text>
-            </TouchableOpacity>
-            </Text>
+          <View style={{width: '80%', marginTop: 10}}>
+      <CustomButton title="Next" onPress={handleSubmit} />
+      </View>
+
+      <View style={{ marginTop: 20}}>
+        <LoginButton/>
+      </View>
 
           </View>
         </View>
@@ -96,33 +96,6 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     marginTop: 3,
   },
-  button: {
-    backgroundColor: '#0470BA',
-    height: 50,
-    padding: 10,
-    borderRadius: 50,
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-    marginTop: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  loginText: {
-    fontSize: 16,
-color: '#7A7A7A',
-textAlign: 'center',
-marginBottom: 20,
-},
-loginLink: {
-fontSize: 16,
-color: '#0470BA',
-fontWeight: 'bold',
-},
 });
 
 export default Status;

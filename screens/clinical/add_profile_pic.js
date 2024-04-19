@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 
+import CustomButton from '../../components/button';
+import LoginButton from '../../components/login_button';
+
 const AddProfilePic = () => {
   const handleSubmit = () => {
     navigation.navigate('SignUp');
   };
-  const handleLoginPress = () => {
-    navigation.navigate('LoginScreen');
-  };
+  
   return (
     <>
       <View style={styles.container}>
@@ -27,15 +28,23 @@ const AddProfilePic = () => {
         Please enter your correct details below for signing-up on “Infosenior.care”.        
         </Text>
           <View style={styles.container3}>
-          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-      <Text style={styles.buttonText}>Next</Text>
-    </TouchableOpacity>
-      <Text style={styles.loginText}>
-            Already have an account? 
-            <TouchableOpacity onPress={handleLoginPress}>
-              <Text style={styles.loginLink}>Login</Text>
-            </TouchableOpacity>
-            </Text>
+          <View style={styles.pic_container}>
+          <TouchableOpacity>
+            <Image source={require('../../assets/images/add_profile.png')} style={styles.profile} />
+          </TouchableOpacity>
+        </View>
+          <Text style={{ fontSize: 25, fontWeight: 'bold', color:'black', marginTop:20 }}>Upload a Profile Picture</Text>
+          <Text style={{ marginTop: 3, textAlign: 'center', color:'black', paddingBottom: 20, fontSize: 13 , paddingHorizontal: 50 }}>
+          Please upload a profile photo without any masks or glasses for accurate identification.</Text>
+         
+      
+    <View style={{width: '80%', marginTop: 20}}>
+      <CustomButton title="Next" onPress={handleSubmit} />
+      </View>
+
+      <View style={{}}>
+        <LoginButton/>
+      </View>
           </View>
         </View>
       </View>
@@ -52,7 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   container2: {
-    height: '70%',
+    height: '65%',
     width: '100%',
     backgroundColor: '#0470BA',
     alignItems: 'center',
@@ -75,7 +84,7 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
   },
   logo: {
-    marginBottom: 20,
+    marginBottom: 5,
     width: 50,
     height: 50,
 
@@ -87,33 +96,12 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     marginTop: 3,
   },
-  button: {
-    backgroundColor: '#0470BA',
-    height: 50,
-    padding: 10,
-    borderRadius: 50,
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-    marginTop: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  loginText: {
-    fontSize: 16,
-color: '#7A7A7A',
-textAlign: 'center',
-marginBottom: 20,
-},
-loginLink: {
-fontSize: 16,
-color: '#0470BA',
-fontWeight: 'bold',
-},
+pic_container: {
+  width: '80%',
+  height: 100,
+  justifyContent: 'center',
+  alignItems: 'center',
+}
 });
 
 export default AddProfilePic;

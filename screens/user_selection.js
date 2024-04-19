@@ -6,7 +6,10 @@ import SignUpInfo from './clinical/signup_info';
 import LoginButton from '../components/login_button';
 import Status from './clinical/clinical_status';
 import AddProfilePic from './clinical/add_profile_pic';
-
+import Otp from './clinical/otp';
+import SignUp from './clinical/signup';
+import ManagePrivacy from './clinical/manage_privacy';
+import ThankYou from './clinical/thankyou';
 
 const UserSelection = () => {
   const navigation = useNavigation();
@@ -18,7 +21,7 @@ const UserSelection = () => {
 
   const handleSubmit = () => {
     if (selectedOption === 'clinical') {
-      navigation.navigate('AddProfilePic');
+      navigation.navigate('ThankYou');
     } else if (selectedOption === 'patient') {
       navigation.navigate('PatientScreen');
     } else {
@@ -26,9 +29,7 @@ const UserSelection = () => {
     }
   };
 
-  const handleLoginPress = () => {
-    navigation.navigate('LoginScreen');
-  };
+
 
   const renderOption = (option, imageSource, text) => {
     const isSelected = selectedOption === option;
@@ -58,9 +59,12 @@ const UserSelection = () => {
             {renderOption('clinical', require('../assets/images/17.png'), 'Clinical')}
             {renderOption('patient', require('../assets/images/18.png'), 'Patient')}
           </View>
+          <View style={{width: '80%', alignItems: 'center'}}>
           <CustomButton title="Next" onPress={handleSubmit} />
-  
-          <LoginButton title="Already have an account?" onPress={handleLoginPress} />
+          </View>
+          <View style={{ marginTop: 20}}>
+        <LoginButton/>
+      </View>
         </View>
       </View>
     </View>
@@ -110,17 +114,18 @@ const styles = StyleSheet.create({
   },
     optionContainer: {
       flexDirection: 'column',
-  //     shadowColor: "#000",
-  //   shadowOffset: {
-  //   width: 0,
-  //   height: 1,
-  // },
-  //   shadowOpacity: 0.2,
-  //   shadowRadius: 1.41,
-  //   elevation: 2,
+       shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+
+elevation: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F6F5F2',
+    backgroundColor: '#FFFFFF',
     borderWidth: 3,
     height: 120,
     borderColor: '#fff',
