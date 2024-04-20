@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
   orText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: 'bold', 
   },
 });
 
