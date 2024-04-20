@@ -11,6 +11,7 @@ import AddProfilePic from './screens/clinical/add_profile_pic';
 import Otp from './screens/clinical/otp';
 import ManagePrivacy from './screens/clinical/manage_privacy';
 import ThankYou from './screens/clinical/thankyou';
+import Sign from './screens/clinical/e_sign';
 
 
 const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ export default function App() {
         <Stack.Screen name="Otp" component={Otp} options={{ headerShown: false }} />
         <Stack.Screen name="ManagePrivacy" component={ManagePrivacy} options={{ headerShown: false }} />
         <Stack.Screen name='ThankYou' component={ThankYou} options={{ headerShown: false }} />
+        <Stack.Screen name='Sign' component={Sign} options={{ headerShown: false }} />
         {/* Add other screens here */}
       </Stack.Navigator>
     </NavigationContainer>

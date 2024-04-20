@@ -10,6 +10,7 @@ import Otp from './clinical/otp';
 import SignUp from './clinical/signup';
 import ManagePrivacy from './clinical/manage_privacy';
 import ThankYou from './clinical/thankyou';
+import Sign from './clinical/e_sign';
 
 const UserSelection = () => {
   const navigation = useNavigation();
@@ -21,7 +22,7 @@ const UserSelection = () => {
 
   const handleSubmit = () => {
     if (selectedOption === 'clinical') {
-      navigation.navigate('ThankYou');
+      navigation.navigate('Sign');
     } else if (selectedOption === 'patient') {
       navigation.navigate('PatientScreen');
     } else {
