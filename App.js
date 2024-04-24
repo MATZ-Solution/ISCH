@@ -13,6 +13,9 @@ import ManagePrivacy from './screens/clinical/manage_privacy';
 import ThankYou from './screens/clinical/thankyou';
 import Sign from './screens/clinical/e_sign';
 import Signed from './screens/clinical/signed';
+import UserSelectionLogin from './screens/clinical/login/user_selection_login';
+import Login from './screens/clinical/login/login';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -20,7 +23,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={Sign}>
+      <Stack.Navigator initialRouteName={UserSelection}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
         <Stack.Screen name="UserSelection" component={UserSelection} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
@@ -32,6 +35,8 @@ export default function App() {
         <Stack.Screen name='ThankYou' component={ThankYou} options={{ headerShown: false }} />
         <Stack.Screen name='Sign' component={Sign} options={{ headerShown: false }} />
         <Stack.Screen name='Signed' component={Signed} options={{ headerShown: false }} />
+        <Stack.Screen name='UserSelectionLogin' component={UserSelectionLogin} options={{ headerShown: false }} />
+        <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
         {/* Add other screens here */}
       </Stack.Navigator>
     </NavigationContainer>

@@ -3,10 +3,10 @@ import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import UserSelection from '../screens/user_selection';
 
-const LoginButton = ( ) => {
+const SignUpButton = ( ) => {
   const navigation = useNavigation();
   const handleLoginPress = () => {
-    navigation.navigate('UserSelectionLogin');
+    navigation.navigate('UserSelection');
   };
   return (
     <View style={{
@@ -16,9 +16,9 @@ const LoginButton = ( ) => {
     }}>
 
   <Text style={styles.loginText}>
-    Already have an account?</Text>
+    Don't have an account?</Text>
     <TouchableOpacity onPress={handleLoginPress}>
-      <Text style={styles.loginLink}>Login</Text>
+      <Text style={styles.loginLink}>SignUp</Text>
     </TouchableOpacity>
   </View>
   );
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginButton;
+export default SignUpButton;

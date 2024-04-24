@@ -1,12 +1,17 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import Status from './clinical_status';
 
 import CustomButton from '../../components/button';
 import LoginButton from '../../components/login_button';
 
 const AddProfilePic = () => {
+  const navigation = useNavigation();
+
+
   const handleSubmit = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate('Status');
   };
   
   return (

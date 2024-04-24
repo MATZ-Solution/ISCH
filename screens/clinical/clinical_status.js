@@ -2,14 +2,17 @@ import React from 'react';
 import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import CustomButton from '../../components/button';
 import LoginButton from '../../components/login_button';
+import { useNavigation } from '@react-navigation/native';
+import ManagePrivacy from './manage_privacy';
 
 const Status = () => {
+  const navigation = useNavigation()
   ;
   const handleSubmit = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate('ManagePrivacy');
   };
   const handleLoginPress = () => {
-    navigation.navigate('LoginScreen');
+    navigation.navigate('Login');
   };
   return (
     <>

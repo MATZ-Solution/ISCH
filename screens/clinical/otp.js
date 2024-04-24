@@ -1,8 +1,13 @@
 import React, { useRef } from 'react';
 import { View, Text, Image, Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import CustomButton from '../../components/button';
+import { useNavigation } from '@react-navigation/native';
+import AddProfilePic from './add_profile_pic';
+
 
 const Opt = () => {
+  const navigation = useNavigation();
+
   const [otp, setOtp] = React.useState(['', '', '', '']);
   const refs = useRef([]);
 
@@ -19,7 +24,7 @@ const Opt = () => {
     }
   };
   const handleSubmit = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate('AddProfilePic');
   };
   return (
     <>

@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Image, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import CustomButton from '../components/button';
-import SignUpInfo from './clinical/signup_info';
-import LoginButton from '../components/login_button';
-import Status from './clinical/clinical_status';
-import AddProfilePic from './clinical/add_profile_pic';
-import Otp from './clinical/otp';
-import SignUp from './clinical/signup';
-import ManagePrivacy from './clinical/manage_privacy';
-import ThankYou from './clinical/thankyou';
-import Sign from './clinical/e_sign';
-import UserSelectionLogin from './clinical/login/user_selection_login';
+import CustomButton from '../../../components/button';
+import LoginButton from '../../../components/login_button';
 
 const UserSelection = () => {
   const navigation = useNavigation();
@@ -23,7 +14,7 @@ const UserSelection = () => {
 
   const handleSubmit = () => {
     if (selectedOption === 'clinical') {
-      navigation.navigate('SignUp');
+      navigation.navigate('Login');
     } else if (selectedOption === 'patient') {
       navigation.navigate('PatientScreen');
     } else {
@@ -49,7 +40,7 @@ const UserSelection = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/images/logo.png')} style={styles.logo} />
+      <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
       <View style={styles.container2}>
         <Text style={{ marginTop: 5, fontSize: 15, color:'white' }}>Welcome to</Text>
         <Text style={{ fontSize: 23, fontWeight: 'bold', color:'white' }}>InfoSenior Care App</Text>
@@ -58,8 +49,8 @@ const UserSelection = () => {
         </Text>
         <View style={styles.container3}>
           <View style={styles.optionsContainer}>
-            {renderOption('clinical', require('../assets/images/17.png'), 'Clinical')}
-            {renderOption('patient', require('../assets/images/18.png'), 'Patient')}
+            {renderOption('clinical', require('../../../assets/images/17.png'), 'Clinical')}
+            {renderOption('patient', require('../../../assets/images/18.png'), 'Patient')}
           </View>
           <View style={{width: '80%', alignItems: 'center'}}>
           <CustomButton title="Next" onPress={handleSubmit} />

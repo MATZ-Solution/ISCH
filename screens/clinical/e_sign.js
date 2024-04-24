@@ -2,8 +2,11 @@ import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, TouchableOpacity, TextInput } from 'react-native';
 import SignatureCanvas from 'react-native-signature-canvas';
 import CustomButton from '../../components/button';
+import { useNavigation } from '@react-navigation/native';
+import ThankYou from './thankyou';
 
 const Sign = () => {
+  const navigation = useNavigation();
   const signatureRef = useRef(null);
   const [signatureEnabled, setSignatureEnabled] = useState(true);
   const [fullName, setFullName] = React.useState('');
@@ -24,6 +27,9 @@ const Sign = () => {
     }
   };
 
+  const handleSubmit = () => {
+    navigation.navigate('ThankYou');
+  };
   const handleClear = () => {
     if (signatureRef.current) {
       signatureRef.current.clearSignature();
@@ -131,7 +137,7 @@ const Sign = () => {
             
           </View>
           <View style={{paddingTop: 30}}>
-              <CustomButton title="Next" />
+              <CustomButton title="Next" onPress={handleSubmit} />
             </View>
         </View>
     </View>

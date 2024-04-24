@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'rea
 import { FontAwesome } from '@expo/vector-icons';
 import CustomButton from '../../components/button';
 import { initialText } from "../../text/text_1";
+import Sign from "./e_sign";
 
 const Checkbox = ({ value, onValueChange }) => (
   <TouchableOpacity 
@@ -41,7 +42,7 @@ const ManagePrivacy = ({ navigation }) => {
 
   const handleSubmit = () => {
     if (acceptedGuidelines && acceptedServiceAgreement && acceptedBusinessAgreement) {
-      navigation.navigate('SignUp');
+      navigation.navigate('Sign');
     } else {
       Alert.alert('Alert', 'Please accept all agreements before proceeding.');
     }
@@ -112,3 +113,80 @@ const styles = StyleSheet.create({
 });
 
 export default ManagePrivacy;
+
+// import React, { useState } from "react";
+// import { View, Text, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
+// import CustomButton from '../../components/button';
+// import { initialText } from "../../text/text_1";
+// import { useNavigation } from '@react-navigation/native';
+// import GuidelineExpand from "../../components/guideline_expand";
+// import { initialText2 } from "../../text/text_2";
+// import { initialText1 } from "../../text/text_3";
+// import { FontAwesome } from '@expo/vector-icons';
+
+// const Checkbox = ({ value, onValueChange }) => (
+//   <TouchableOpacity 
+//     onPress={() => onValueChange(!value)} 
+//     style={{
+//       width: 24, 
+//       height: 24, 
+//       backgroundColor: '#378CE7', 
+//       borderRadius: 4, 
+//       marginRight: 10, 
+//       alignItems: 'center', 
+//       justifyContent: 'center' 
+//     }}>
+//     {value && (
+//       <FontAwesome name="check" size={14} color="white" />
+//     )}
+//   </TouchableOpacity>
+// );
+
+// const ManagePrivacy = ({ navigation }) => {
+//   const [acceptedServiceAgreement, setAcceptedServiceAgreement] = useState(true);
+//   const [acceptedBusinessAgreement, setAcceptedBusinessAgreement] = useState(true);
+
+//   const handleSubmit = () => {
+//     if (acceptedServiceAgreement && acceptedBusinessAgreement) {
+//       navigation.navigate('Sign');
+//     } else {
+//       Alert.alert('Alert', 'Please accept all agreements before proceeding.');
+//     }
+//   };
+
+//   return (  
+//     <View style={styles.container}> 
+//       <ScrollView>
+//         <View style={{ paddingTop: 50, paddingLeft: 20 }}> 
+//           <Text style={{ color: 'black', fontSize: 27, fontWeight: '800' }}>Review Legal Documents</Text>  
+//           <Text style={{ color: '#7A7A7A', fontSize: 15, fontWeight: '400', paddingTop: 10, paddingRight: 10 }}>
+//             By consenting to the following InfoSenior Care can provide the best experience possible.
+//             You can manage your privacy at any time in Settings. We collect data usage to improve our 
+//             application and its impact. You can read more about how we collect, process, and use your 
+//             data on our Privacy page.
+//           </Text>
+//         </View>
+
+//         <GuidelineExpand main_heading="Community Guidelines" para_text={initialText} />
+//         <GuidelineExpand main_heading="Service Agreement" para_text={initialText1} />
+//         <GuidelineExpand main_heading="Business Association Agreement" para_text={initialText2} />
+
+//         <View style={{ width: '80%', marginTop: 20, marginLeft: 40 }}>
+//           <CustomButton title="Next" onPress={handleSubmit} />
+//         </View>
+//       </ScrollView>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     width: '100%',
+//     backgroundColor: '#ffffff',
+//     alignItems: 'left',
+//     justifyContent: 'flex-start',
+//   },
+// });
+
+// export default ManagePrivacy;
